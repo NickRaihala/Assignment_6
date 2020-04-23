@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>Assignment V</title>
+    <script>
+        function add(){ 
+            if(document.getElementById('sum').value == 1){
+                alert("You Math Well");
+            }
+            else{
+                alert("No No No")
+            }
+        }
+        function checkLength(){
+            var messageText = document.getElementById('telegraph').value;
+            var messageLength = messageText.length;
+          //  var messageCost = messageLength * 0.10;
+          //  alert("This message would cost $" + messageCost);
+            if(messageLength > 250){
+                alert("This message is too long to send!");
+            }
+     
+        }
+        function validateEmail(){
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var inputText = document.getElementById('checkemail')
+            if(inputText.value.match(mailformat)){
+                document.form1.text1.focus();
+                return true;
+            }
+                else{
+                    alert("You have an invalid email!");
+                    document.form1.text1.focus();
+                    return false;
+                }
+            }
+        function submit(){
+            var inputText = document.getElementById('checkemail')
+            if(inputText.value.length == 0){
+                     alert("No Email!!");
+            }
+            var messageText = document.getElementById('telegraph').value;
+            var messageLength = messageText.length;
+            if(messageLength == 0){
+                alert("Message Left Blank!!");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Assignment V</h1>
+    <p>Re-submit for GitHub</p>
+    <textarea placeholder="Please Tell Me Some'ting" form="form_id" id="telegraph" onchange="checkLength()"></textarea>
+    <br>
+    Email
+    <input id="checkemail" onchange="validateEmail()" form="email" />
+    <br>
+    Prove to me that you are not an imposter. What is 1 + 1? 
+    <input type="number" id="sum" />
+    <button onclick="add()">Check</button>
+    <br>
+    <input />
+    <br>
+    <input type="submit" onclick="submit()" />
+</body>
+</html>
